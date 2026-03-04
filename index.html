@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="./assets/book.svg">
+    <script type="module" src="index.js" defer></script>
 
     <title>Dav's Reading Log</title>
 </head>
@@ -32,17 +33,18 @@
         </div>
     </header>
 
-    <main>
+    <main class="container">
         <section  class="container" id="post-container">
-            <div id="featured-post">
-                <p>feature container</p>
+            <div id="featured-post-container">
             </div>
-            <div id="recent-posts">
 
-                <p>Book 1</p>
-                <p>Book 2</p>
-                <p>Book 3</p>
+            <div class="container" id="recent-post-container">
             </div>
+
+            <div id="view-more-container">
+                <button id="view-more-btn">View More</button>
+            </div>
+
         </section>
     </main>
 
