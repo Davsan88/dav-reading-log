@@ -4,3 +4,9 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
