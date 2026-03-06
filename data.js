@@ -29,7 +29,7 @@ export const booksArray = [
         id: "limitless",
         title: "Limitless",
         author: "Jim Kwik",
-        coverImg: "./image/limitless.jpg",
+        coverImg: "./images/limitless.jpg",
         dateRead: "April 2024",
         entryDate: "January 19, 2026",
         excerpt: `
@@ -55,7 +55,7 @@ export const booksArray = [
         id: "five-second-rule",
         title: "The 5 Second Rule",
         author: "Mel Robbins",
-        coverImg: " ",
+        coverImg: "./images/five_second_rule.jpg",
         dateRead: "July 2024",
         entryDate: "Januray 26, 2026",
         excerpt: `
@@ -80,7 +80,7 @@ export const booksArray = [
         id: "eleven-rings",
         title: "Eleven Rings",
         author: "Phil Jackson",
-        coverImg: " ",
+        coverImg: "./images/eleven-rings.jpg",
         dateRead: "October 2024",
         entryDate: "February 2, 2026",
         excerpt: `
@@ -106,7 +106,7 @@ export const booksArray = [
         id: "can't-hurt-me",
         title: "Can't Hurt Me",
         author: "David Goggins",
-        coverImg: " ",
+        coverImg: "./images/cant_hurt_me.jpg",
         dateRead: "January 2025",
         entryDate: "February 9, 2026",
         excerpt: `
@@ -132,7 +132,7 @@ export const booksArray = [
         id: "extreme-ownership",
         title: "Extreme Ownership",
         author: "Jocko Willink & Leif Babin",
-        coverImg: " ",
+        coverImg: "./images/extreme_ownership.jpg",
         dateRead: "April 2025",
         entryDate: "9",
         excerpt: `
@@ -158,7 +158,7 @@ export const booksArray = [
         id: "searching-for-meaning",
         title: "Man's Searching for Meaning",
         author: "Viktor E. Frankl",
-        coverImg: " ",
+        coverImg: "./images/mans_searching_for_meaning.jpg",
         dateRead: "July 2025",
         entryDate: "February 16, 2026",
         excerpt: `
@@ -183,8 +183,8 @@ export const booksArray = [
     {
         id: "start-with-why",
         title: "Start with Why",
-        author: " ",
-        coverImg: " ",
+        author: "Simon Sinek",
+        coverImg: "./images/start_with_why.jpg",
         dateRead: "October 2025",
         entryDate: "February 23, 2026",
         excerpt: `
