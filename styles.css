@@ -10,3 +10,12 @@ body {
   height: 24px;
   fill: currentColor;
 }
+
+#featuredPostCard {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
