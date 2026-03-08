@@ -134,7 +134,7 @@ export const posts = [
         author: "Jocko Willink & Leif Babin",
         coverImage: "./images/extreme_ownership.jpg",
         dateRead: "April 2025",
-        entryDate: "February 9, 2026",
+        entryDate: "February 16, 2026",
         excerpt: `
         The moment I take full ownership, excuses lose power — and solutions become possible.
         `,
@@ -160,7 +160,7 @@ export const posts = [
         author: "Viktor E. Frankl",
         coverImage: "./images/mans_searching_for_meaning.jpg",
         dateRead: "July 2025",
-        entryDate: "February 16, 2026",
+        entryDate: "February 23, 2026",
         excerpt: `
             A reminder that even when life is hard, I still have a choice: my attitude, my meaning, my response.
             `,
@@ -186,7 +186,7 @@ export const posts = [
         author: "Simon Sinek",
         coverImage: "./images/start_with_why.jpg",
         dateRead: "October 2025",
-        entryDate: "February 23, 2026",
+        entryDate: "February 30, 2026",
         excerpt: `
         When my “why” is clear, my choices get simpler — and discipline stops feeling like a battle.
         `,
