@@ -1,12 +1,24 @@
 import { posts } from "./data.js"
 
 const featuredPostContainer = document.getElementById('featured-post-container')
-const recentPostContainer = document.getElementById('recent-post-container')
+const recentPostContainers = document.querySelectorAll('.recent-post-container')
+const fullPostContainer = document.getElementById('full-post-container')
 
+
+const generatePostPage = () => {
+    const params = new URLSearchParams(window.location.search)
+    const postId = params.get("id")
+
+    if (!fullPostContainer) return
+
+    console.log(postId)
+}
+generatePostPage()
 
 const generateFeaturePostCard = () => {
-
     const featuredPost = posts.find(post => post.featured)
+
+    if (!featuredPostContainer) return
 
     if (!featuredPost) {
         featuredPostContainer.innerHTML = "Post not found"
@@ -29,7 +41,6 @@ const generateFeaturePostCard = () => {
         </article>
     `
 }
-
 generateFeaturePostCard()
 
 
@@ -52,7 +63,9 @@ const generateRecentPostsCards = () => {
                 `
     }).join(' ')
 
-    recentPostContainer.innerHTML = recentPostHtml
+    recentPostContainers.forEach(container => {
+        container.innerHTML = recentPostHtml
+    })
 }
 
 generateRecentPostsCards()
