@@ -1,11 +1,17 @@
 import { posts } from "./data.js"
 
+
+// Stable containers
+
 const featuredPostContainer = document.getElementById('featured-post-container')
 const recentPostContainers = document.querySelectorAll('.recent-post-container')
 const fullPostContainer = document.getElementById('full-post-container')
 
 
-const generatePostPage = () => {
+
+// Render functions
+
+const renderPostPage = () => {
     const params = new URLSearchParams(window.location.search)
     const postId = params.get("id")
 
@@ -13,9 +19,9 @@ const generatePostPage = () => {
 
     console.log(postId)
 }
-generatePostPage()
 
-const generateFeaturePostCard = () => {
+
+const renderFeaturedPost = () => {
     const featuredPost = posts.find(post => post.featured)
 
     if (!featuredPostContainer) return
@@ -41,10 +47,9 @@ const generateFeaturePostCard = () => {
         </article>
     `
 }
-generateFeaturePostCard()
 
 
-const generateRecentPostsCards = () => {
+const renderRecentPosts = () => {
     const recentPosts = posts
         .filter(post => !post.featured)
         .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
@@ -68,4 +73,9 @@ const generateRecentPostsCards = () => {
     })
 }
 
-generateRecentPostsCards()
+
+// Initialization
+
+if (featuredPostContainer) renderFeaturedPost()
+if (recentPostContainers.length) renderRecentPosts()
+if (fullPostContainer) renderPostPage()
