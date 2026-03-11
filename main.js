@@ -18,11 +18,30 @@ const fullPostContainer = document.getElementById('full-post-container')
 // Helper Functions
 // ====================
 
+const getFeaturedPost = () => posts.find(post => post.featured)
 
 const getRecentPosts = posts => {
     return posts.filter(post => !post.featured)
-        .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
-        .slice(0, 3)
+                .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+                .slice(0, 3)
+}
+
+const generateFeaturedPost = post => {
+    return `
+        <article>
+            <a 
+                href="post.html?id=${post.id}" 
+                class="featured-post-card"
+                style="background-image: url('${post.coverImage}')"
+            >
+                <span>${post.entryDate}</span>
+                <h2>${post.title}</h2>
+                <span>by ${post.author}</span>
+                <p>${post.excerpt}</p>
+            </a>
+
+        </article>
+    `
 }
 
 const generateRecentPostsHtml = posts => {
@@ -42,9 +61,6 @@ const generateRecentPostsHtml = posts => {
 }
 
 
-
-
-
 // ====================
 // Render Functions
 // ====================
@@ -55,29 +71,15 @@ const renderPostPage = () => {
 }
 
 
-const renderFeaturedPost = () => {
-    const featuredPost = posts.find(post => post.featured)
+const renderFeaturedPost = post => {
+    const featuredPost = getFeaturedPost()
 
-    if (!featuredPost) {
-        featuredPostContainer.innerHTML = "Post not found"
+    if (!post) {
+        featuredPostContainer.innerHTML = "<p>Post not found</p>"
         return
     }
 
-    featuredPostContainer.innerHTML = `
-        <article>
-            <a 
-                href="post.html?id=${featuredPost.id}" 
-                class="featured-post-card"
-                style="background-image: url('${featuredPost.coverImage}')"
-            >
-                <span>${featuredPost.entryDate}</span>
-                <h2>${featuredPost.title}</h2>
-                <span>by ${featuredPost.author}</span>
-                <p>${featuredPost.excerpt}</p>
-            </a>
-
-        </article>
-    `
+    featuredPostContainer.innerHTML = generateFeaturedPost(featuredPost)
 }
 
 
