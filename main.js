@@ -15,6 +15,22 @@ const fullPostContainer = document.getElementById('full-post-container')
 
 
 // ====================
+// Helper Functions
+// ====================
+
+const getRecentPosts = posts => {
+    return posts.filter(post => !post.featured)
+                .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+                .slice(0, 3)
+}
+
+
+
+
+
+
+
+// ====================
 // Render Functions
 // ====================
 
@@ -50,13 +66,9 @@ const renderFeaturedPost = () => {
 }
 
 
-const renderRecentPosts = () => {
-    const recentPosts = posts
-        .filter(post => !post.featured)
-        .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
-        .slice(0, 3)
+const renderRecentPosts = (posts) => {
 
-    const recentPostHtml = recentPosts.map(post => {
+    const recentPostHtml = posts.map(post => {
         return `<article>
                     <a href="post.html?id=${post.id}">
                         <img src="${post.coverImage}" alt="" />
@@ -81,5 +93,5 @@ const renderRecentPosts = () => {
 // ====================
 
 if (featuredPostContainer) renderFeaturedPost()
-if (recentPostContainers.length) renderRecentPosts()
+if (recentPostContainers.length) renderRecentPosts(getRecentPosts(posts))
 if (fullPostContainer) renderPostPage()
