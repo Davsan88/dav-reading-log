@@ -70,11 +70,10 @@ const renderPostPage = () => {
     const postId = params.get("id")
 }
 
-
 const renderFeaturedPost = post => {
     const featuredPost = getFeaturedPost()
 
-    if (!post) {
+    if (!featuredPost) {
         featuredPostContainer.innerHTML = "<p>Post not found</p>"
         return
     }
@@ -82,9 +81,9 @@ const renderFeaturedPost = post => {
     featuredPostContainer.innerHTML = generateFeaturedPost(featuredPost)
 }
 
-
 const renderRecentPosts = posts => {
     const html = generateRecentPostsHtml(posts)
+
     recentPostContainers.forEach(container => {
         container.innerHTML = html
     })
