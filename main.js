@@ -1,30 +1,31 @@
+// ====================
+// Imports
+// ====================
+
 import { posts } from "./data.js"
 
 
-// Stable containers
+// ====================
+// DOM References
+// ====================
 
 const featuredPostContainer = document.getElementById('featured-post-container')
 const recentPostContainers = document.querySelectorAll('.recent-post-container')
 const fullPostContainer = document.getElementById('full-post-container')
 
 
-
-// Render functions
+// ====================
+// Render Functions
+// ====================
 
 const renderPostPage = () => {
     const params = new URLSearchParams(window.location.search)
     const postId = params.get("id")
-
-    if (!fullPostContainer) return
-
-    console.log(postId)
 }
 
 
 const renderFeaturedPost = () => {
     const featuredPost = posts.find(post => post.featured)
-
-    if (!featuredPostContainer) return
 
     if (!featuredPost) {
         featuredPostContainer.innerHTML = "Post not found"
@@ -74,7 +75,10 @@ const renderRecentPosts = () => {
 }
 
 
-// Initialization
+
+// ====================
+// Page Initialization
+// ====================
 
 if (featuredPostContainer) renderFeaturedPost()
 if (recentPostContainers.length) renderRecentPosts()
