@@ -18,13 +18,28 @@ const fullPostContainer = document.getElementById('full-post-container')
 // Helper Functions
 // ====================
 
+
 const getRecentPosts = posts => {
     return posts.filter(post => !post.featured)
-                .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
-                .slice(0, 3)
+        .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+        .slice(0, 3)
 }
 
-
+const generateRecentPostsHtml = posts => {
+    return posts.map(post => {
+        return `
+            <article>
+                <a href="post.html?id=${post.id}">
+                    <img src="${post.coverImage}" alt="" />
+                    <span>${post.entryDate}</span>
+                    <h2>${post.title}</h2>
+                    <span>by ${post.author}</span>
+                    <p>${post.excerpt}</p>
+                </a>
+            </article>
+        `
+    }).join(' ')
+}
 
 
 
@@ -66,23 +81,10 @@ const renderFeaturedPost = () => {
 }
 
 
-const renderRecentPosts = (posts) => {
-
-    const recentPostHtml = posts.map(post => {
-        return `<article>
-                    <a href="post.html?id=${post.id}">
-                        <img src="${post.coverImage}" alt="" />
-                        <span>${post.entryDate}</span>
-                        <h2>${post.title}</h2>
-                        <span>by ${post.author}</span>
-                        <p>${post.excerpt}</p>
-                    </a>
-                </article>
-                `
-    }).join(' ')
-
+const renderRecentPosts = posts => {
+    const html = generateRecentPostsHtml(posts)
     recentPostContainers.forEach(container => {
-        container.innerHTML = recentPostHtml
+        container.innerHTML = html
     })
 }
 
