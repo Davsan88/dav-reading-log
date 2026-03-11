@@ -70,7 +70,7 @@ const renderPostPage = () => {
     const postId = params.get("id")
 }
 
-const renderFeaturedPost = post => {
+const renderFeaturedPost = () => {
     const featuredPost = getFeaturedPost()
 
     if (!featuredPost) {
