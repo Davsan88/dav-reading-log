@@ -26,6 +26,12 @@ const getRecentPosts = posts => {
                 .slice(0, 3)
 }
 
+const getFullPost = () => {
+    const params = new URLSearchParams(window.location.search)
+    const postId = params.get("id")
+    return posts.find(post => post.id === postId)   
+}
+
 const generateFeaturedPost = post => {
     return `
         <article>
@@ -60,14 +66,33 @@ const generateRecentPostsHtml = posts => {
     }).join(' ')
 }
 
+const generateFullHtml = post => {
+    return `
+        <article>
+            <span>${post.entryDate}</span>
+            <h1>${post.title}</h1>
+            <span>by ${post.author}</span>
+            <p>${post.excerpt}</p>
+            <img src="${post.coverImage}" alt="" />
+            <p>${post.content}</p>
+        </article>
+    `
+}
+
 
 // ====================
 // Render Functions
 // ====================
 
 const renderPostPage = () => {
-    const params = new URLSearchParams(window.location.search)
-    const postId = params.get("id")
+    const fullPost = getFullPost()
+
+    if(!fullPost) {
+        fullPostContainer.innerHTML = "<p>Post not found</p>"
+        return
+    }
+
+    fullPostContainer.innerHTML = generateFullHtml(fullPost)
 }
 
 const renderFeaturedPost = () => {
