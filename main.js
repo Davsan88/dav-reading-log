@@ -21,20 +21,22 @@ const viewMoreBtn = document.getElementById('view-more-btn')
 
 const getFeaturedPost = () => posts.find(post => post.featured)
 
-const getSortedPosts = posts => {
+const getCurrentPostId = () => {
+    const params = new URLSearchParams(window.location.search)
+    return params.get("id")
+}
+
+const getSortedPosts = () => {
+    const postId = getCurrentPostId()
+
     return posts
             .filter(post => !post.featured)
+            .filter(post => post.id !== postId)
             .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
 }
 
-// const getAllPosts = posts => {
-//     return posts.filter(post => !post.featured)
-//                 .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
-// }
-
 const getFullPost = () => {
-    const params = new URLSearchParams(window.location.search)
-    const postId = params.get("id")
+    const postId = getCurrentPostId()
     return posts.find(post => post.id === postId)   
 }
 
@@ -126,12 +128,9 @@ const renderPostPage = () => {
 // ====================
 
 const handleViewMoreClick = () => {  
-    renderRecentPosts(getSortedPosts(posts))
+    renderRecentPosts(getSortedPosts())
     viewMoreBtn.hidden = true
 }
-
-
-
 
 
 // ====================
@@ -139,7 +138,8 @@ const handleViewMoreClick = () => {
 // ====================
 
 if (featuredPostContainer) renderFeaturedPost()
-if (recentPostContainers.length) renderRecentPosts(getSortedPosts   (posts).slice(0, 3))
+if (recentPostContainers.length) renderRecentPosts(getSortedPosts()
+    .slice(0, 3))
 if (fullPostContainer) renderPostPage()
 if (viewMoreBtn) {
     viewMoreBtn.addEventListener('click', handleViewMoreClick)
