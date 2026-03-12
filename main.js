@@ -12,6 +12,7 @@ import { posts } from "./data.js"
 const featuredPostContainer = document.getElementById('featured-post-container')
 const recentPostContainers = document.querySelectorAll('.recent-post-container')
 const fullPostContainer = document.getElementById('full-post-container')
+const viewMoreBtn = document.getElementById('view-more-btn')
 
 
 // ====================
@@ -20,11 +21,16 @@ const fullPostContainer = document.getElementById('full-post-container')
 
 const getFeaturedPost = () => posts.find(post => post.featured)
 
-const getRecentPosts = posts => {
-    return posts.filter(post => !post.featured)
-                .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
-                .slice(0, 3)
+const getSortedPosts = posts => {
+    return posts
+            .filter(post => !post.featured)
+            .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
 }
+
+// const getAllPosts = posts => {
+//     return posts.filter(post => !post.featured)
+//                 .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+// }
 
 const getFullPost = () => {
     const params = new URLSearchParams(window.location.search)
@@ -55,7 +61,7 @@ const generateRecentPostsHtml = posts => {
         return `
             <article>
                 <a href="post.html?id=${post.id}">
-                    <img src="${post.coverImage}" alt="" />
+                    <img src="${post.coverImage}" alt="${post.title} cover" />
                     <span>${post.entryDate}</span>
                     <h2>${post.title}</h2>
                     <span>by ${post.author}</span>
@@ -73,7 +79,7 @@ const generateFullHtml = post => {
             <h1>${post.title}</h1>
             <span>by ${post.author}</span>
             <p>${post.excerpt}</p>
-            <img src="${post.coverImage}" alt="" />
+            <img src="${post.coverImage}" alt="${post.title} cover" />
             <p>${post.content}</p>
         </article>
     `
@@ -83,6 +89,25 @@ const generateFullHtml = post => {
 // ====================
 // Render Functions
 // ====================
+
+const renderFeaturedPost = () => {
+    const featuredPost = getFeaturedPost()
+    
+    if (!featuredPost) {
+        featuredPostContainer.innerHTML = "<p>Post not found</p>"
+        return
+    }
+    
+    featuredPostContainer.innerHTML = generateFeaturedPost(featuredPost)
+}
+
+const renderRecentPosts = posts => {
+    const html = generateRecentPostsHtml(posts)
+
+    recentPostContainers.forEach(container => {
+        container.innerHTML = html
+    })
+}
 
 const renderPostPage = () => {
     const fullPost = getFullPost()
@@ -95,24 +120,17 @@ const renderPostPage = () => {
     fullPostContainer.innerHTML = generateFullHtml(fullPost)
 }
 
-const renderFeaturedPost = () => {
-    const featuredPost = getFeaturedPost()
 
-    if (!featuredPost) {
-        featuredPostContainer.innerHTML = "<p>Post not found</p>"
-        return
-    }
+// ====================
+// Handlers
+// ====================
 
-    featuredPostContainer.innerHTML = generateFeaturedPost(featuredPost)
+const handleViewMoreClick = () => {  
+    renderRecentPosts(getSortedPosts(posts))
+    viewMoreBtn.hidden = true
 }
 
-const renderRecentPosts = posts => {
-    const html = generateRecentPostsHtml(posts)
 
-    recentPostContainers.forEach(container => {
-        container.innerHTML = html
-    })
-}
 
 
 
@@ -121,5 +139,8 @@ const renderRecentPosts = posts => {
 // ====================
 
 if (featuredPostContainer) renderFeaturedPost()
-if (recentPostContainers.length) renderRecentPosts(getRecentPosts(posts))
+if (recentPostContainers.length) renderRecentPosts(getSortedPosts   (posts).slice(0, 3))
 if (fullPostContainer) renderPostPage()
+if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', handleViewMoreClick)
+}
