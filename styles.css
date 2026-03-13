@@ -1,23 +1,23 @@
 /* ====================
    Base
    ==================== */
-
-html, 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #404040;
-    line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #404040;
+  line-height: 1.5;
 }
 
 img {
   max-width: 100%;
-  /* display: block; */
+  display: block;
 }
 
 a {
@@ -28,6 +28,32 @@ a {
 /* ====================
    Layout
    ==================== */
+
+.container {
+  width: min(100% - 3rem, 900px);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer{
+  text-align: center;
+  padding: 2em 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -43,5 +69,5 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
 }
