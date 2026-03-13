@@ -26,13 +26,15 @@ const getCurrentPostId = () => {
     return params.get("id")
 }
 
-const getSortedPosts = () => {
+const getSortedPosts = (limit = null) => {
     const postId = getCurrentPostId()
 
-    return posts
+    let sortedPosts = posts
             .filter(post => !post.featured)
             .filter(post => post.id !== postId)
             .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+
+    return limit ? sortedPosts.slice(0, limit) : sortedPosts
 }
 
 const getFullPost = () => {
@@ -138,8 +140,7 @@ const handleViewMoreClick = () => {
 // ====================
 
 if (featuredPostContainer) renderFeaturedPost()
-if (recentPostContainers.length) renderRecentPosts(getSortedPosts()
-    .slice(0, 3))
+if (recentPostContainers.length) renderRecentPosts(getSortedPosts(3))
 if (fullPostContainer) renderPostPage()
 if (viewMoreBtn) {
     viewMoreBtn.addEventListener('click', handleViewMoreClick)
