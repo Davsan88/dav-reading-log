@@ -30,24 +30,24 @@ const getSortedPosts = (limit = null) => {
     const postId = getCurrentPostId()
 
     const sortedPosts = posts
-            .filter(post => !post.featured)
-            .filter(post => post.id !== postId)
-            .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
+        .filter(post => !post.featured)
+        .filter(post => post.id !== postId)
+        .sort((a, b) => new Date(b.entryDate) - new Date(a.entryDate))
 
     return limit ? sortedPosts.slice(0, limit) : sortedPosts
 }
 
 const getFullPost = () => {
     const postId = getCurrentPostId()
-    return posts.find(post => post.id === postId)   
+    return posts.find(post => post.id === postId)
 }
 
 const generateFeaturedPost = post => {
     return `
         <article>
-            <a 
-                href="post.html?id=${post.id}" 
+            <a   
                 class="featured-post-card"
+                href="post.html?id=${post.id}" 
                 style="background-image: url('${post.coverImage}')"
             >
                 <span>${post.entryDate}</span>
@@ -64,7 +64,10 @@ const generateRecentPostsHtml = posts => {
     return posts.map(post => {
         return `
             <article>
-                <a href="post.html?id=${post.id}">
+                <a 
+                    class="recent-post-card"
+                    href="post.html?id=${post.id}"
+                >
                     <img src="${post.coverImage}" alt="${post.title} cover" />
                     <span>${post.entryDate}</span>
                     <h2>${post.title}</h2>
@@ -96,12 +99,12 @@ const generateFullHtml = post => {
 
 const renderFeaturedPost = () => {
     const featuredPost = getFeaturedPost()
-    
+
     if (!featuredPost) {
         featuredPostContainer.innerHTML = "<p>Post not found</p>"
         return
     }
-    
+
     featuredPostContainer.innerHTML = generateFeaturedPost(featuredPost)
 }
 
@@ -116,7 +119,7 @@ const renderRecentPosts = posts => {
 const renderPostPage = () => {
     const fullPost = getFullPost()
 
-    if(!fullPost) {
+    if (!fullPost) {
         fullPostContainer.innerHTML = "<p>Post not found</p>"
         return
     }
@@ -129,7 +132,7 @@ const renderPostPage = () => {
 // Handlers
 // ====================
 
-const handleViewMoreClick = () => {  
+const handleViewMoreClick = () => {
     renderRecentPosts(getSortedPosts())
     viewMoreBtn.hidden = true
 }
