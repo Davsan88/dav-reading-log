@@ -25,6 +25,10 @@ a {
   color: inherit
 }
 
+h1, h2, p {
+  margin: 0;
+}
+
 /* ====================
    Layout
    ==================== */
@@ -41,17 +45,54 @@ a {
   align-items: center;
 }
 
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 footer{
   text-align: center;
   padding: 2em 0;
 }
 
 
+/* ====================
+   Components
+   ==================== */
 
+.featured-post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-inline: 2em;
+  padding-bottom: 2em;
+  gap: 0.25em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 16 / 9;
+}
 
+.recent-post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
 
+.recent-post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: end; 
+  /* margin: 1em 0 2em; */
+  /* gap: 0.25em;  */
 
+}
 
+.recent-post-card img {
+  border-radius: 3px;
+  margin-bottom: 0.75em;
+}
 
 
 
@@ -63,11 +104,3 @@ footer{
   fill: currentColor;
 }
 
-.featured-post-card {
-  display: flex;
-  flex-direction: column;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-}
