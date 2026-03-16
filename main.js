@@ -81,7 +81,7 @@ const generateFullHtml = post => {
             <span>by ${post.author}</span>
             <p>${post.excerpt}</p>
             <img src="${post.coverImage}" alt="${post.title} cover" />
-            <p>${post.content}</p>
+            ${post.content}
 
     `
 }
