@@ -18,7 +18,10 @@ body {
 img {
   max-width: 100%;
   display: block;
+  border-radius: 3px;
+  margin-bottom: 0.75em;
 }
+
 
 a {
   text-decoration: none;
@@ -27,6 +30,10 @@ a {
 
 h1, h2, p {
   margin: 0;
+}
+
+h1, h2 {
+  line-height: 1.25em;
 }
 
 /* ====================
@@ -71,31 +78,29 @@ footer{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
 }
 
 .recent-post-container {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 3em;
 }
 
 .recent-post-card {
   display: flex;
   flex-direction: column;
   justify-content: end; 
-  /* margin: 1em 0 2em; */
-  /* gap: 0.25em;  */
-
+  gap: 0.5em;
 }
 
-.recent-post-card img {
-  border-radius: 3px;
-  margin-bottom: 0.75em;
+#full-post-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  gap: 1em;
+  margin-bottom: 2em;
 }
-
-
-
 
 
 .logo-icon {
