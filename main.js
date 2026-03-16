@@ -44,7 +44,6 @@ const getFullPost = () => {
 
 const generateFeaturedPost = post => {
     return `
-        <article>
             <a   
                 class="featured-post-card"
                 href="post.html?id=${post.id}" 
@@ -55,15 +54,12 @@ const generateFeaturedPost = post => {
                 <span>by ${post.author}</span>
                 <p>${post.excerpt}</p>
             </a>
-
-        </article>
     `
 }
 
 const generateRecentPostsHtml = posts => {
     return posts.map(post => {
         return `
-            <article>
                 <a 
                     class="recent-post-card"
                     href="post.html?id=${post.id}"
@@ -74,21 +70,19 @@ const generateRecentPostsHtml = posts => {
                     <span>by ${post.author}</span>
                     <p>${post.excerpt}</p>
                 </a>
-            </article>
         `
     }).join(' ')
 }
 
 const generateFullHtml = post => {
     return `
-        <article>
             <span>${post.entryDate}</span>
             <h1>${post.title}</h1>
             <span>by ${post.author}</span>
             <p>${post.excerpt}</p>
             <img src="${post.coverImage}" alt="${post.title} cover" />
             <p>${post.content}</p>
-        </article>
+
     `
 }
 
