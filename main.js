@@ -46,13 +46,19 @@ const generateFeaturedPost = post => {
     return `
             <a   
                 class="featured-post-card"
-                href="post.html?id=${post.id}" 
-                style="background-image: url('${post.coverImage}')"
+                href="post.html?id=${post.id}"  
             >
-                <span>${post.entryDate}</span>
-                <h2>${post.title}</h2>
-                <span>by ${post.author}</span>
-                <p>${post.excerpt}</p>
+                <div class="featured-info-div">
+                    <span>${post.entryDate}</span>
+                    <h2>${post.title}</h2>
+                    <span>by ${post.author}</span>
+                    <p>${post.excerpt}</p>
+                </div>
+
+                <img 
+                    src="${post.coverImage}" 
+                    alt="${post.title} cover" class="featured-img"
+                />
             </a>
     `
 }
