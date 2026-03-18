@@ -52,7 +52,6 @@ h1, h2 {
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
-  /* font-size: 0.70rem */
 }
 
 .main-section {
@@ -77,8 +76,6 @@ footer{
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding-inline: 2em;
-  padding-bottom: 2em;
   gap: 0.25em;
   background-size: cover;
   background-position: center;
@@ -127,8 +124,6 @@ footer{
   display: flex;
   align-items: center;
   gap: 0.5em;
-  font-weight: 800;
-  font-size: 0.75rem;
 }
 
 .nav-ul {
@@ -167,14 +162,6 @@ footer{
   grid-area: avat;
 }
 
-.bold {
-  font-weight: 900;
-}
-
-.recent-post-section h3 {
-  font-size: 0.75rem;
-}
-
 .about-heading{
   grid-area: head;
 }
@@ -183,7 +170,6 @@ footer{
   display: block;
   border-left: 4px solid #6366f1;
   padding-left: 1em;
-  font-size: 1.05rem;
   line-height: 1.6;
   grid-area: intr;
 }
@@ -198,6 +184,28 @@ footer{
 .view-more-btn:hover {
   text-decoration: 1px underline #bdbdbd;
   color: #919191;
+}
+
+
+/* ====================
+   Typography
+   ==================== */
+
+.bold {
+  font-weight: 900;
+}
+
+.logo-container {
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.recent-post-section h3 {
+  font-size: 0.75rem;
+}
+
+.about-intro {
+  font-size: 1.05rem;
 }
 
 
@@ -227,6 +235,19 @@ footer{
   }
 }
 
+@media(min-width: 550px) {
+  .featured-post-card{
+    max-width: 90vw; 
+    margin-inline: auto;
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "fdiv fimg fimg"
+        "fdiv fimg fimg";
+  }
+}
+
 @media(min-width: 700px) {
   .recent-post-container {
     display: grid;
@@ -245,3 +266,10 @@ footer{
 }
 
 
+.featured-info-div{
+  grid-area: fdiv;
+}
+
+.featured-img {
+  grid-area: fimg;
+}
