@@ -50,7 +50,7 @@ const generateFeaturedPost = post => {
             >
                 <div class="featured-info-div">
                     <span>${post.entryDate}</span>
-                    <h2>${post.title}</h2>
+                    <h1>${post.title}</h1>
                     <span>by ${post.author}</span>
                     <p>${post.excerpt}</p>
                 </div>
