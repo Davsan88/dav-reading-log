@@ -1,12 +1,10 @@
 :root {
-  --fs-xl: 3rem;
-  --fs-700: 2rem;
-  --fs-600: 1.5rem;
+  --fs-xl: clamp(1.5rem, 5vw, 3em);
+  --fs-700: 1.75rem;
   --fs-500: 1.125rem;
   --fs-400: 1rem;
   --fs-300: 0.875rem;
-  }
-
+}
 
 
 /* ====================
@@ -28,7 +26,7 @@ img {
   display: block;
   border-radius: 3px;
   margin-bottom: 0.75em;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15)
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15)
 }
 
 
@@ -37,11 +35,15 @@ a {
   color: inherit
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   line-height: 1em;
 }
 
@@ -56,10 +58,9 @@ h1, h2 {
 
 .site-header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 1em 0;
+  padding: 2em 0;
 }
 
 .main-section {
@@ -68,7 +69,7 @@ h1, h2 {
   gap: 2rem;
 }
 
-footer{
+footer {
   text-align: center;
   padding: 2em 0;
   background-color: #202020;
@@ -80,15 +81,29 @@ footer{
    Components
    ==================== */
 
-.featured-post-card {
+.nav-ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.nav-ul li:not(:last-child) {
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  border-top: 1px dotted #a190b6;
+  border-bottom: 1px dotted #a190b6;
+}
+
+.featured-info-div {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  gap: 0.25em;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  aspect-ratio: 16 / 10;
+  gap: 1em;
+  margin-bottom: 1em;
 }
 
 .recent-post-section {
@@ -108,7 +123,7 @@ footer{
 .recent-post-card {
   display: flex;
   flex-direction: column;
-  justify-content: end; 
+  justify-content: end;
   align-items: flex-start;
   gap: 0.5em;
 }
@@ -128,6 +143,12 @@ footer{
   margin-bottom: 1em;
 }
 
+.about-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -136,20 +157,7 @@ footer{
 
 .nav-ul {
   list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1em;
 }
-
-
-
-
-
-
-
-
-
-
 
 .logo-icon {
   width: 24px;
@@ -157,20 +165,15 @@ footer{
   fill: currentColor;
 }
 
-
-
-
-
-
 .avatar {
   width: 180px;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   grid-area: avat;
 }
 
-.about-heading{
+.about-heading {
   grid-area: head;
 }
 
@@ -244,60 +247,85 @@ footer {
    Media Queries
    ==================== */
 
-
 @media(min-width: 480px) {
+
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+  }
+
+  .nav-ul {
+    flex-direction: row;
+    /* align-items: center; */
+    gap: 3em;
+  }
+
+  .nav-ul li:not(:last-child) {
+    padding: 0;
+    width: auto;
+    border: none;
+  }
+
   .recent-post-container {
     display: grid;
-    gap: 1em;
+    gap: 2em;
     grid-template-columns: repeat(2, 1fr);
   }
 
   .about-div {
     display: grid;
+    align-items: center;
     gap: 1em;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-        "avat head head"
-        "intr intr intr";
+    grid-template-areas:
+      "avat head head"
+      "intr intr intr";
   }
 
   .avatar {
     width: min(100% - 1em, 250px);
   }
-}
 
-@media(min-width: 550px) {
-  .featured-post-card{
-    max-width: 90vw; 
+  .about-content-div {
+    width: min(100% - 3rem, 750px);
     margin-inline: auto;
-    display: grid;
-    gap: 3em;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-        "fdiv fimg fimg"
-        "fdiv fimg fimg";
   }
 }
 
 @media(min-width: 700px) {
+  .featured-post-card {
+    max-width: 90vw;
+    margin-inline: auto;
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "fdiv fimg fimg"
+      "fdiv fimg fimg";
+  }
+
   .recent-post-container {
     display: grid;
-    gap: 1em;
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .about-div {
     display: grid;
-    gap: 1em;
+    column-gap: 1em;
+    gap: 20px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: 
-        "avat avat head head head"
-        "avat avat intr intr intr";
+    grid-template-areas:
+      "avat avat head head head"
+      "avat avat intr intr intr";
   }
+
+
 }
 
 
-.featured-info-div{
+.featured-info-div {
   grid-area: fdiv;
 }
 
