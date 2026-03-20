@@ -3,7 +3,7 @@
 Hello there! 👋
 This is a clean, responsive reading journal where I share key insights from books that have shaped how I think.
 
-👉 [**Live Demo**] (https://davs-reading-log.netlify.app/)
+👉 [**Live Demo**](https://davs-reading-log.netlify.app/)
 
 ---
 
@@ -158,7 +158,7 @@ not just making things work, but making them **clean, scalable, and user-friendl
 
 ## 🌐 Live Demo
 
-👉 [**Live Demo**] (https://davs-reading-log.netlify.app/)
+👉 [**Live Demo**](https://davs-reading-log.netlify.app/)
 
 ---
 
