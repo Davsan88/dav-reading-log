@@ -215,22 +215,28 @@ footer {
   justify-content: end;
   align-items: flex-start;
   gap: 0.5em;
-  transition: transform 0.4s ease, box-shadow 0.2s ease;
 }
 
-.recent-post-card:hover {
+.recent-post-card, 
+.featured-post-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.recent-post-card:hover,
+.featured-post-card:hover {
   transform: translateY(-4px);
 }
 
-.recent-post-card:hover img {
-  box-shadow: 0 15px 40px #6365f1a1;
+.recent-post-card:hover img,
+.featured-post-card:hover img {
+  box-shadow: 0 15px 40px #6365f171;
 }
 
 .avatar {
   width: 180px;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 20px 40px #6365f1a1;
+  box-shadow: 0 20px 40px #6365f174;
   grid-area: avat;
 }
 
@@ -270,11 +276,11 @@ footer {
   background-color: #ffffff;
   cursor: pointer;
   transition: all 0.15s ease;
-}  
+}
 
 .view-more-btn:hover {
   text-decoration: 1px underline #6366f1;
-  color: #8587da;
+  color: #8586d1;
   transform: translateY(-1px);
 }
 
@@ -340,6 +346,13 @@ footer {
     grid-template-areas:
       "fdiv fimg fimg"
       "fdiv fimg fimg";
+  }
+
+  .featured-post-card {
+    padding: 2em;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 10px 30px #6365f141;
   }
 
   .recent-post-container {
