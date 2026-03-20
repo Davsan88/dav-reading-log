@@ -270,11 +270,16 @@ footer {
   background-color: #ffffff;
   cursor: pointer;
   transition: all 0.15s ease;
-}
+}  
 
 .view-more-btn:hover {
-  text-decoration: 1px underline #bdbdbd;
-  color: #919191;
+  text-decoration: 1px underline #6366f1;
+  color: #8587da;
+  transform: translateY(-1px);
+}
+
+.view-more-btn:active {
+  transform: translateY(0);
 }
 
 
