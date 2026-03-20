@@ -6,6 +6,11 @@
   --fs-300: 0.875rem;
 }
 
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
 /* ====================
    Base
    ==================== */
@@ -31,13 +36,12 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-}
+} 
 
 img {
   max-width: 100%;
   display: block;
   border-radius: 3px;
-  margin-bottom: 0.75em;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -193,9 +197,14 @@ footer {
   border-bottom: 1px dotted #a190b6;
 }
 
+.nav-ul a:focus-visible::after {
+  width: 100%;
+}
+
 .featured-post-card {
   max-width: 90vw;
   margin-inline: auto;
+  margin-bottom: 3em;
 }
 
 .featured-info-div {
@@ -232,16 +241,22 @@ footer {
   transform: translateY(-4px);
 }
 
+.recent-post-card:focus-visible,
+.featured-post-card:focus-visible {
+  outline: none;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
 .recent-post-card:hover img,
 .featured-post-card:hover img {
-  box-shadow: 0 15px 40px #6365f171;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
 }
 
 .avatar {
   width: 180px;
   border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 20px 40px #6365f174;
+  box-shadow: 0 20px 40px #6365f14a;
   grid-area: avat;
 }
 
@@ -293,6 +308,12 @@ footer {
   transform: translateY(0);
 }
 
+.view-more-btn:focus-visible {
+  outline: none;
+  color: #6366f1;
+  text-decoration: underline;
+  transform: translateY(-1px);
+}   
 
 /* ====================
    Media Queries
@@ -351,13 +372,10 @@ footer {
     grid-template-areas:
       "fdiv fimg fimg"
       "fdiv fimg fimg";
-  }
-
-  .featured-post-card {
     padding: 2em;
     border-radius: 8px;
     background-color: #fafafa;
-    box-shadow: 0 10px 30px #6365f141;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   }
 
   .recent-post-container {
