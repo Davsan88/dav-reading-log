@@ -9,6 +9,7 @@
 /* ====================
    Base
    ==================== */
+
 *,
 *::before,
 *::after {
@@ -40,9 +41,11 @@ img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+
 /* ====================
    Typography
    ==================== */
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #404040;
@@ -86,9 +89,11 @@ footer {
   font-weight: 900;
 }
 
+
 /* ====================
    Layout
    ==================== */
+
 .container {
   width: min(100% - 3rem, 900px);
   margin-inline: auto;
@@ -149,9 +154,11 @@ footer {
   gap: 2em;
 }
 
+
 /* ====================
    Components
    ==================== */
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -208,13 +215,22 @@ footer {
   justify-content: end;
   align-items: flex-start;
   gap: 0.5em;
+  transition: transform 0.4s ease, box-shadow 0.2s ease;
+}
+
+.recent-post-card:hover {
+  transform: translateY(-4px);
+}
+
+.recent-post-card:hover img {
+  box-shadow: 0 15px 40px #6365f1a1;
 }
 
 .avatar {
   width: 180px;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px #6365f1a1;
   grid-area: avat;
 }
 
@@ -241,9 +257,11 @@ footer {
   color: #919191;
 }
 
+
 /* ====================
    Media Queries
    ==================== */
+
 @media (min-width: 480px) {
   .site-header {
     flex-direction: row;
