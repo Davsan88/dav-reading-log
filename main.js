@@ -49,9 +49,9 @@ const generateFeaturedPost = post => {
                 href="post.html?id=${post.id}"  
             >
                 <div class="featured-info-div">
-                    <span>${post.entryDate}</span>
+                    <span class="meta">${post.entryDate}</span>
                     <h1>${post.title}</h1>
-                    <span>by ${post.author}</span>
+                    <span class="meta">by ${post.author}</span>
                     <p>${post.excerpt}</p>
                 </div>
 
@@ -71,9 +71,9 @@ const generateRecentPostsHtml = posts => {
                     href="post.html?id=${post.id}"
                 >
                     <img src="${post.coverImage}" alt="${post.title} cover" />
-                    <span>${post.entryDate}</span>
+                    <span class="meta">${post.entryDate}</span>
                     <h2>${post.title}</h2>
-                    <span>by ${post.author}</span>
+                    <span class="meta">by ${post.author}</span>
                     <p>${post.excerpt}</p>
                 </a>
         `
@@ -82,9 +82,9 @@ const generateRecentPostsHtml = posts => {
 
 const generateFullHtml = post => {
     return `
-            <span>${post.entryDate}</span>
+            <span class="meta">${post.entryDate}</span>
             <h1>${post.title}</h1>
-            <span>by ${post.author}</span>
+            <span class="meta">by ${post.author}</span>
             <p>${post.excerpt}</p>
             <img src="${post.coverImage}" alt="${post.title} cover" />
             ${post.content}

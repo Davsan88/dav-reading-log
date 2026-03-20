@@ -85,6 +85,11 @@ footer {
   line-height: 1.6;
 }
 
+.meta {
+  font-size: var(--fs-300);
+  color: #777;
+}
+
 .bold {
   font-weight: 900;
 }
